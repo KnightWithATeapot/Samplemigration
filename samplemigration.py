@@ -36,6 +36,7 @@ def add_tables(mas_table_db1, mas_table_db2, cursor_db_2, fn):
             command = 'CREATE TABLE ' + name_table_db1[0] + '(test text)'  # + (test test) т.к.
             # нельзя создать пустую таблицу
             wtmd(command, fn)
+            print(command)
             cursor_db_2.execute(command)
             mas_table_db2.append(name_table_db1)
     return mas_table_db2
@@ -52,6 +53,7 @@ def drop_tables(mas_table_db1, mas_table_db2, cursor_db_2, fn):
         if name_no:
             command = 'DROP TABLE ' + name_table_db2[0]
             wtmd(command, fn)
+            print(command)
             cursor_db_2.execute(command)
 
 
@@ -66,6 +68,7 @@ def add_columns(name_table, mas_column_db1, mas_column_db2, cursor_db_2, fn):
         if column_no:
             command = 'ALTER TABLE ' + name_table + ' ADD COLUMN ' + name_column_db1[1] + ' ' + name_column_db1[2]
             wtmd(command, fn)
+            print(command)
             cursor_db_2.execute(command)
             mas_column_db2.append(name_column_db1)
     return mas_column_db2
@@ -82,6 +85,7 @@ def drop_columns(name_table, mas_column_db1, mas_column_db2, cursor_db_2, fn):
         if column_no:
             command = 'ALTER TABLE ' + name_table + ' DROP COLUMN ' + name_column_db2[1]
             wtmd(command, fn)
+            print(command)
             cursor_db_2.execute(command)
 
 
